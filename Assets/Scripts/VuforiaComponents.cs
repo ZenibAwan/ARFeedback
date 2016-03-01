@@ -3,16 +3,24 @@ using System.Collections;
 
 public class VuforiaComponents : ITracking {
 
-	public static VuforiaComponents vc;
+	#region private variables
+	private static VuforiaComponents vc;
+	private static ITracking it;
+	#endregion
 
-	public static VuforiaComponents GetInstance(){
-		if (vc == null)
+	/// <summary>
+	/// Gets the instance.
+	/// </summary>
+	/// <returns>The instance.</returns>
+	public static ITracking GetInstance() {
+		if (it == null) {
 			vc = new VuforiaComponents ();
-
-		return vc; 
+			it = (ITracking)vc;
+		}
+		return it; 
 	}
 
-	public void Test(){
+	public void Test() {
 		Debug.Log ("VuforiaComponents.Test");
 	}
 }

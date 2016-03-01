@@ -3,16 +3,24 @@ using System.Collections;
 
 public class MetaioComponents : ITracking {
 
-	public static MetaioComponents mc;
+	#region private variables
+	private static MetaioComponents mc;
+	private static ITracking it;
+	#endregion
 
-	public static MetaioComponents GetInstance(){
-		if (mc == null)
+	/// <summary>
+	/// Gets the instance.
+	/// </summary>
+	/// <returns>The instance.</returns>
+	public static ITracking GetInstance() {
+		if (it == null) {
 			mc = new MetaioComponents ();
-		
-		return mc; 
+			it = (ITracking)mc;
+		}
+		return it; 
 	}
 
-	public void Test(){
+	public void Test() {
 		Debug.Log ("MetaioComponents.Test");
 	}
 }
