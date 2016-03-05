@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using metaio;
 
 public class MetaioComponents : ITracking {
 
@@ -17,10 +19,18 @@ public class MetaioComponents : ITracking {
 			mc = new MetaioComponents ();
 			it = (ITracking)mc;
 		}
-		return it; 
+		return it;
 	}
 
 	public void Test() {
 		Debug.Log ("MetaioComponents.Test");
+	}
+
+//	public int GetTrackingValue() {
+//		return MetaioSDKUnity.getTrackingValues ();
+//	}
+
+	public bool TrackingNotFound() {
+		return true;
 	}
 }

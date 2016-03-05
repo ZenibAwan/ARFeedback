@@ -16,7 +16,7 @@ public class FeedbackView : MonoBehaviour {
 	/// </summary>
 	/// <param name="feedback">Feedback.</param>
 	/// <param name="feedbackImage">Feedback image.</param>
-	public FeedbackView(EventState evt){
+	public FeedbackView(FeedbackEvent evt){
 		if (GameObject.Find ("Canvas") == null) 
 			Debug.Log ("Please add the FeedbackCanvas prefab from Resources");
 		

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class EventState {
+public abstract class FeedbackEvent {
 	
 	public string messageToUser;
 	public string image;

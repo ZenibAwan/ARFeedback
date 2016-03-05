@@ -24,10 +24,14 @@ public class TrackingInterfaceController : MonoBehaviour {
 	/// Gets the enum value.
 	/// </summary>
 	/// <returns>The enum value.</returns>
-	public USEDSDK getEnumValue() {
+	public USEDSDK GetEnumValue() {
 		return usedSDK;
 	}
 
+	/// <summary>
+	/// Gets the tracking instance.
+	/// </summary>
+	/// <returns>The tracking instance.</returns>
 	public static ITracking GetTrackingInstance() {
 		return it;
 	}
@@ -38,17 +42,19 @@ public class TrackingInterfaceController : MonoBehaviour {
 	/// <param name="us">Us.</param>
 	void LoadSDKFromEnum(USEDSDK us) {
 		switch (us) {
-		case USEDSDK.NONE:
-			Debug.LogError ("Select your Tracking SDK in the Unity Editor (TrackingInterfaceController.cs)!");
-			break;
+			case USEDSDK.NONE:
+				Debug.LogError ("Select your Tracking SDK in the Unity Editor (TrackingInterfaceController.cs)!");
+				break;
 		case USEDSDK.METAIO:
 			Debug.Log ("Metaio is selected");
 			it = (ITracking)MetaioComponents.GetInstance ();
-			break;
-		case USEDSDK.VUFORIA:
-			Debug.Log ("Vuforia is selected");
-			it = (ITracking)VuforiaComponents.GetInstance ();
-			break;
+	//			it = metaioComponents;
+				break;
+			case USEDSDK.VUFORIA:
+				Debug.Log ("Vuforia is selected");
+				it = (ITracking)VuforiaComponents.GetInstance ();
+	//			it = vuforiaComponents;
+				break;
 		}
 	}
 }

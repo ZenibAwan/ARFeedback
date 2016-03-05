@@ -20,7 +20,7 @@ public class EventHandling : MonoBehaviour
 
 	void CAMERABLOCKED()
 	{
-		//CameraObscuredEvent coe = new CameraObscuredEvent();
+		//CameraObscuredFeedbackEvent coe = new CameraObscuredFeedbackEvent();
 		//FeedbackView FeedbackCAMERABLOCKED = new FeedbackView (coe.getMessageToUser(), coe.getImage()); 
 	}
 }

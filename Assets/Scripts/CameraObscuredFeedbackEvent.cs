@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-class CameraObscuredEvent : EventState {
+class CameraObscuredFeedbackEvent : FeedbackEvent {
 
-	public CameraObscuredEvent(){
+	public CameraObscuredFeedbackEvent(){
 		this.messageToUser = "Weiß man noch nicht so genau.. TBD";
 		this.image = "test";
 		this.timeToLive = 10;
