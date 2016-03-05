@@ -7,6 +7,7 @@ UnityGenerated/
 Library/
 Assets/Plugins/x86/UI/
 Assets/Plugins/x86/WebView/CEF/lib/
+Assets/Plugins/iOS/metaiosdk
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
