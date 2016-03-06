@@ -1,26 +1,40 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
-using System.IO;
 
-public class EventHandling : MonoBehaviour 
-{
-	Event EventCAMERA_BLOCKED;
+public class EventHandling : MonoBehaviour {
 
-	void OnEnable()
-	{
-		EventManager.CAMERABLOCKED += CAMERABLOCKED;
-	}
-	
-	
-	void OnDisable()
-	{
-		EventManager.CAMERABLOCKED -= CAMERABLOCKED;
+	private UnityAction someListener;
+	private FeedbackView panel;
+
+	void Awake () {
+		someListener = new UnityAction (SomeFunction);
 	}
 
+	void OnEnable () {
+		EventManager.StartListening ("test", someListener);
+		EventManager.StartListening ("CameraObscured", CameraObscured);
+	}
 
-	void CAMERABLOCKED()
-	{
-		//CameraObscuredFeedbackEvent coe = new CameraObscuredFeedbackEvent();
-		//FeedbackView FeedbackCAMERABLOCKED = new FeedbackView (coe.getMessageToUser(), coe.getImage()); 
+	void OnDisable () {
+		EventManager.StopListening ("test", someListener);
+		EventManager.StopListening ("CameraObscured", CameraObscured);
+	}
+
+	void SomeFunction () {
+		Debug.Log ("Some Function was called!");
+	}
+
+	void CameraObscured () {
+		CameraObscuredFeedbackEvent cofe = new CameraObscuredFeedbackEvent ();
+		panel = new FeedbackView (cofe);
+		//panel = gameObject.AddComponent<FeedbackView> ();
+		StartCoroutine (panel.showAndHide (cofe.getTimeToLive()));
+
+		Debug.Log ("Some Other Function was called!");
+	}
+
+	void SomeThirdFunction () {
+		Debug.Log ("Some Third Function was called!");
 	}
 }
